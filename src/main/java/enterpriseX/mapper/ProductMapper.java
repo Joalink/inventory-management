@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
 
-    @Mapping(target= "id", ignore = true)
+    @Mapping(target= "productId", ignore = true)
     Product toEntity(ProductRequest request);
 
     ProductResponse toResponse(Product product);
