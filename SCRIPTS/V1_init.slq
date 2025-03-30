@@ -1,0 +1,42 @@
+use im_db;
+
+CREATE TABLE Role (
+    role_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    role_name VARCHAR(50) UNIQUE NOT NULL,
+    description VARCHAR(255)
+);
+
+CREATE TABLE User (
+    user_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role_id INT,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (role_id) REFERENCES Role(role_id) ON DELETE SET NULL
+);
+
+CREATE INDEX idx_user_role ON User(role_id);
+
+CREATE TABLE Product (
+    product_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    quantity INT,
+    status BOOL NOT NULL,
+);
+
+CREATE TABLE Movement (
+    movement_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+    movement_type VARCHAR(20),
+    movement_date DATETIME NOT NULL DEFAULTS CURRENT_TIMESTAMP
+    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (product_id) REFERENCES Product(product_id)
+);
+
+INSERT INTO Role (role_name, description)
+VALUES
+    ('ADMIN', 'Can manage inventory, Can view the movement history'),
+    ('WAREHOUSEMAN','Can view the inventory, Can manage product movements');
