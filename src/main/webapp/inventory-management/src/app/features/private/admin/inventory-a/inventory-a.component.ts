@@ -37,21 +37,19 @@ export class InventoryAComponent {
   }
 
   openModal(product: any) {
-    this.selectedProduct = { ...product }; // Clonamos para evitar mutaciones
+    this.selectedProduct = { ...product }; 
     console.log("se presiono", product.productId)
   }
 
-  // Cierra el modal
   closeModal() {
     this.selectedProduct = null;
   }
 
-  // Actualiza el producto en la lista LOCALMENTE (sin recargar)
   handleUpdate(updatedProduct: any) {
     const index = this.products.findIndex((p) => p.productId === updatedProduct.id);
     if (index !== -1) {
-      this.products[index] = updatedProduct; // Actualización en memoria
+      this.products[index] = updatedProduct; 
     }
-    this.closeModal(); // Cerramos el modal
+    this.closeModal();
   }
 }

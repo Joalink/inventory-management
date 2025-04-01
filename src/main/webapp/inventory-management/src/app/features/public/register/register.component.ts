@@ -30,7 +30,7 @@ export class RegisterComponent {
   username: string = '';    
   password: string = '';
   role: 'admin' | 'user' = 'user';
-  users: any[] = []; // Array para almacenar los usuarios registrados
+  users: any[] = []; 
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -41,13 +41,13 @@ export class RegisterComponent {
   }
 
     const newUser = {usernam: this.username, password: this.password, role: this.role};
-    this.users.push(newUser); // Agrega el nuevo usuario al array
+    this.users.push(newUser); 
 
     alert('User registered successfully!');
-    this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
+    this.router.navigate(['/login']); 
   }
 
   public navigateToLogin() {  
-    this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
+    this.router.navigate(['/login']);
   }
 }
