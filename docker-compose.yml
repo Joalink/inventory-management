@@ -1,0 +1,31 @@
+services:
+
+  app:
+    build: .
+    restart: always
+    container_name: inventory-spring
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: jdbc:mysql://db:3306/im_db
+      DATABASE_USERNAME: admin
+      DATABASE_PASSWORD: _im.db33A%xy7
+
+  db:
+    image: "mysql:8.0"
+    restart: always
+    container_name: "mysql"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: im_db
+      MYSQL_ROOT_PASSWORD: _pm.db33A%xy7A
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: _im.db33A%xy7
+
+volumes:
+  mysql-data:

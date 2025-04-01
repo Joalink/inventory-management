@@ -14,7 +14,7 @@ public class Movement {
     private Long movementId;
 
 
-    private Integer userId;
+    private String username;
     private Integer productId;
     private MovementType movementType;
     private LocalDateTime movementDate;

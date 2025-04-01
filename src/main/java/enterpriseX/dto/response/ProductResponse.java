@@ -1,9 +1,15 @@
 package enterpriseX.dto.response;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
-@Value
+//@Value
+@Getter
+@Setter
 @Builder
+@AllArgsConstructor
 public class ProductResponse {
+    Long productId;
+    String name;
+    Integer quantity;
+    Boolean status;
 }

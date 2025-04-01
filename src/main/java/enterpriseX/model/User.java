@@ -22,7 +22,7 @@ public class User {
 
     private String username;
     private String password;
-    private Integer roleId;
-    private LocalDateTime createdAt;
-    private Boolean isActive;
+    private String role;
+//    private LocalDateTime createdAt;
+//    private Boolean isActive;
 }

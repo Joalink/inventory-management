@@ -1,13 +1,19 @@
 package enterpriseX.dto.response;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
-@Value
+//@Value
+@Getter
+@Setter
 @Builder
+@AllArgsConstructor
 public class UserResponse {
-
-    Long userId;
+    String token;
     String username;
-    String email;
+    String role;
+
+
+//    Long userId;
+//    String username;
+//    String email;
 }

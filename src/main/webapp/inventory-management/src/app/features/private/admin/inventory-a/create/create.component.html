@@ -1,0 +1,16 @@
+<p-button label="Crear producto" icon="pi pi-plus" (onClick)="showDialog()"></p-button>
+
+<p-dialog header="Crear producto" [(visible)]="display" [modal]="true">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="p-field">
+      <input id="name" type="text" pInputText formControlName="name" placeholder="nombre" />
+    </div>
+    <!-- <div class="p-field">
+      <input id="quantity" type="number" pInputText formControlName="quantity" placeholder="cantidad" min="0"/>
+    </div> -->
+    <!-- <div class="p-field">
+      <input id="status" type="bool" pInputText formControlName="status" placeholder="estado"/>
+    </div> -->
+    <p-button type="submit" label="Enviar" [disabled]="form.invalid"></p-button>
+  </form>
+</p-dialog>

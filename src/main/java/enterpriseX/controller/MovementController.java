@@ -2,18 +2,18 @@ package enterpriseX.controller;
 
 import enterpriseX.dto.request.MovementRequest;
 import enterpriseX.dto.response.MovementResponse;
+import enterpriseX.dto.response.ProductResponse;
 import enterpriseX.service.MovementService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/movements")
+@RequestMapping("/movements")
 @RequiredArgsConstructor
 public class MovementController {
 
@@ -24,5 +24,11 @@ public class MovementController {
 
         MovementResponse response = movementService.createMovement(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<MovementResponse>> getAllMovements(){
+        List<MovementResponse> movements = movementService.getAllMovements();
+        return ResponseEntity.ok(movements);
     }
 }

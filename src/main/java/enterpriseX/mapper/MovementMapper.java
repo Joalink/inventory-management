@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface MovementMapper {
 
-    @Mapping(target="id", ignore = true)
+    @Mapping(target="movementId", ignore = true)
     Movement toEntity(MovementRequest request);
 
     MovementResponse toResponse(Movement movement);

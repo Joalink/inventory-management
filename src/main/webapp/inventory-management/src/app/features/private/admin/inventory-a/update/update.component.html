@@ -1,0 +1,33 @@
+<p-dialog 
+  header="Editar Producto" 
+  [(visible)]="isVisible" 
+  [modal]="true" 
+  [style]="{ width: '450px' }"
+  (onHide)="close()">
+  
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <!-- Campo oculto para el ID -->
+    <input type="hidden" formControlName="id">
+
+    <!-- Nombre -->
+    <div class="p-field">
+      <label>Nombre</label>
+      <input pInputText formControlName="name" />
+    </div>
+
+    <!-- Cantidad -->
+    <div class="p-field">
+      <label>Cantidad</label>
+      <input type="number" pInputText formControlName="quantity" />
+    </div>
+
+    <!-- Estado -->
+    <div class="p-field-checkbox">
+      <p-checkbox formControlName="status" [binary]="true"></p-checkbox>
+      <label>Activo</label>
+    </div>
+
+    <!-- Botón de guardar -->
+    <button pButton type="submit" label="Guardar"></button>
+  </form>
+</p-dialog>

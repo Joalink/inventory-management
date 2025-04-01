@@ -1,9 +1,17 @@
 package enterpriseX.dto.response;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
-@Value
+import java.time.LocalDateTime;
+//@Value
+@Getter
+@Setter
 @Builder
+@AllArgsConstructor
 public class MovementResponse {
+    Long movementId;
+    String username;
+    Integer productId;
+    String movementType;
+    LocalDateTime movementDate;
 }

@@ -1,0 +1,37 @@
+<p>inventory a works!</p>
+
+<div class="card">
+    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-product>
+            <tr>
+                <td>{{ product.productId }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.status ? '✅ Activo' : '❌ Inactivo'}}</td>
+                <td>
+                  <p-button icon="pi pi-pencil" (click)="openModal(product)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<!-- Correcto cierre del componente hijo -->
+<app-update 
+  *ngIf="selectedProduct"
+	[product]="selectedProduct" 
+	(onUpdate)="handleUpdate($event)"
+	(onClose)="closeModal()">
+</app-update>
+
+<app-create><app-create/>
+
