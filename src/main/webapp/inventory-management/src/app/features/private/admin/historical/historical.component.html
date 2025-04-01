@@ -1,0 +1,24 @@
+<p>historical works!</p>
+<div class="card">
+    <p-table [value]="movements" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th>Codigo</th>
+                <th>Usuario</th>
+                <th>Producto</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+
+            </tr>
+        </ng-template>
+        <ng-template #body let-movement>
+            <tr>
+                <td>{{ movement.movementId }}</td>
+                <td>{{ movement.username }}</td>
+                <td>{{ movement.productId }}</td>
+                <td>{{ movement.movementType }}</td>
+                <td>{{ movement.movementDate }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

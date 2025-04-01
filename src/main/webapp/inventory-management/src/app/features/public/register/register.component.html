@@ -1,0 +1,31 @@
+<div class="register-container">
+  <p-card class="auth-card">
+    <h2>Registro</h2>
+
+    <div class="p-fluid">
+      <div class="p-field">
+        <span class="p-float-label">
+          <input pInputText id="username" [(ngModel)]="username" autocomplete="off" placeholder="email"/>
+        </span>
+      </div>
+
+
+      <div class="p-field">
+        <span class="p-float-label">
+          <p-password id="password" [(ngModel)]="password" toggleMask placeholder="password"></p-password>
+        </span>
+      </div>
+
+      <div class="p-field">
+        <label for="role">Role: </label>
+        <p-dropdown 
+          [options]="[{ label: 'Usuario', value: 'user' }, { label: 'Administrador', value: 'admin' }]" 
+          [(ngModel)]="role">
+        </p-dropdown>
+      </div>
+
+      <p-button label="Registrarse"  (click)="register()" class="p-mb-2 p-button-success"></p-button>
+      <p-button label="Ir a Login"  class="p-button-text p-button-secondary" (click)="navigateToLogin()"></p-button>
+    </div>
+  </p-card>
+</div>

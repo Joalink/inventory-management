@@ -1,5 +1,6 @@
 package enterpriseX.controller;
 
+import enterpriseX.service.impl.AuthService;
 import enterpriseX.dto.request.UserRequest;
 import enterpriseX.dto.response.UserResponse;
 import enterpriseX.service.UserService;
@@ -17,20 +18,30 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final AuthService authService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest request) {
-        UserResponse response = userService.createUser(request);
+        UserResponse response = authService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id ){
         UserResponse response = userService.getUserById(id);
         return ResponseEntity.ok(response);
     }
+
     @GetMapping
     public ResponseEntity<List<UserResponse>> getAllUsers(){
         List<UserResponse> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserResponse> login(@RequestBody UserRequest request){
+        UserResponse response = authService.login(request);
+        return ResponseEntity.ok(response);
     }
 }

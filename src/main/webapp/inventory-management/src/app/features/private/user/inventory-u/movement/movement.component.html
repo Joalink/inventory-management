@@ -1,0 +1,23 @@
+<p-dialog 
+  header="Crear Envio" 
+  [(visible)]="isVisible" 
+  [modal]="true" 
+  [style]="{ width: '450px' }"
+  (onHide)="close()">
+  
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <input type="hidden" formControlName="id">
+    
+    <div class="p-field">
+      <label>Nombre</label>
+      <input pInputText formControlName="name" />
+    </div>
+
+    <div class="p-field">
+      <label>Stock</label>
+      <input type="number" pInputText formControlName="quantity" [max]="maxQuantity" />
+    </div>
+
+    <button pButton type="submit" label="Guardar"></button>
+  </form>
+</p-dialog>

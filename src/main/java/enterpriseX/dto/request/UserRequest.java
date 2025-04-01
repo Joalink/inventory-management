@@ -4,16 +4,21 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+//@Data
+@Getter
+@Setter
 public class UserRequest {
 
-    @NotBlank
-    private String username;
-
     @Email
-    private String email;
+    private String username;
 
     @Size(min=8)
     private String password;
+
+//    @NotBlank
+//    private String role;
+
 }
