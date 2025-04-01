@@ -49,6 +49,15 @@ y ejecutar el siguiente comando para correr la applicacion de frontend:
 ``` bash
   ng serve
 ```
+## 👤 Usuarios de Prueba
+
+- ADMIN:
+    - admin@gmail.com
+    - 123456AC
+
+- USER:
+    - user@gmail.com
+    - 3467Acba
 
 ## 📌 Colección de Postman
 
