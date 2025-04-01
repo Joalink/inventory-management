@@ -6,8 +6,8 @@ import { Movement } from '../../../../core/interfaces/movement.interface';
 
 @Component({
   selector: 'app-historical',
-  standalone: true, // Requerido para componentes independientes
-  imports: [CommonModule, TableModule], // Módulos necesarios
+  standalone: true,
+  imports: [CommonModule, TableModule], 
   templateUrl: './historical.component.html',
   styleUrl: './historical.component.css',
 })

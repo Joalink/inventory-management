@@ -12,7 +12,7 @@ import { InventoryUComponent } from './features/private/user/inventory-u/invento
 
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent }, // Página pública
+  { path: '', component: LoginComponent },
 
   { path: 'register', component: RegisterComponent },
 
@@ -41,14 +41,14 @@ export const routes: Routes = [
         component: InventoryUComponent,
       },
     ],
-    canActivate: [AuthGuard], // Solo autenticados (admin también puede acceder si es necesario)
+    canActivate: [AuthGuard],
   },
 
   {
     path: 'shared',
     component: SharedComponent,
-    canActivate: [AuthGuard], // Tanto admin como user pueden acceder
+    canActivate: [AuthGuard],
   },
 
-  { path: '**', redirectTo: '' }, // Redirección a login
+  { path: '**', redirectTo: '' },
 ];

@@ -31,13 +31,12 @@ export class InventoryUComponent {
     });
   }
 
-  // Filtrar productos activos
   filterActiveProducts() {
     this.activeProducts = this.products.filter((product) => product.status);
   }
 
   openModal(product: any) {
-    this.selectedProduct = { ...product }; // Clonamos para evitar mutaciones
+    this.selectedProduct = { ...product };
     console.log('se presionó', product.productId);
   }
 
@@ -51,7 +50,7 @@ export class InventoryUComponent {
     );
     if (index !== -1) {
       this.products[index] = updatedProduct;
-      this.filterActiveProducts(); // Refiltramos después de actualizar
+      this.filterActiveProducts(); 
     }
     this.closeModal();
   }

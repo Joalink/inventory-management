@@ -41,9 +41,8 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe(
       (response) => {
         this.localStorageService.setItem('token', response.token);
-        this.localStorageService.setItem('role', response.role); // Guarda el rol del usuario
+        this.localStorageService.setItem('role', response.role); 
 
-        // Redirige según el rol
         if (response.role === 'ADMIN') {
           this.router.navigate(['/admin']);
         } else {
@@ -57,6 +56,6 @@ export class LoginComponent {
   }
 
   public navigateToRegister() {
-    this.router.navigate(['/register']); // Redirige a la página de registro
+    this.router.navigate(['/register']);
   }
 }
